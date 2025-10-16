@@ -1,22 +1,22 @@
 #cloud-config
 users:
-  - name: Student
-    ssh-authorized-keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFTpBJNPuYjaDheQjVLVZas37Q9tyKuoT9YcN+SvTxc5 student@DESKTOP-1NUD89T
-    shell: /bin/bash
-    sudo: ALL=(ALL) NOPASSWD:ALL
+  - name: Student
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFTpBJNPuYjaDheQjVLVZas37Q9tyKuoT9YcN+SvTxc5 student@DESKTOP-1NUD89T
+    shell: /bin/bash
+    sudo: ALL=(ALL) NOPASSWD:ALL
 packages:
-  - wget
-  - ntpdate
+  - wget
+  - ntpdate
 write_files:
-  - path: /home/Student/.ssh/id_azure
-    content: |
-      -----BEGIN OPENSSH PRIVATE KEY-----
-      b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-      QyNTUxOQAAACBDdacbsZRrfCY2Ye8gK/TpEHp0ipMsGHDKVJBQsaV9ywAAAKDWaa7z1mmu
-      8wAAAAtzc2gtZWQyNTUxOQAAACBDdacbsZRrfCY2Ye8gK/TpEHp0ipMsGHDKVJBQsaV9yw
-      AAAECUhyJKFmaRVVUKaCRcbJlel9xe1zgz5bpjewtq3Ugy3kN1pxuxlGt8JjZh7yAr9OkQ
-      enSKkywYcMpUkFCxpX3LAAAAF3N0dWRlbnRAREVTS1RPUC0xTlVEODlUAQIDBAUG
-      -----END OPENSSH PRIVATE KEY-----
-    owner: Student:Student
-    permissions: '0600'
+  - path: /home/Student/.ssh/id_azure
+    content: |
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+      QyNTUxOQAAACBDdacbsZRrfCY2Ye8gK/TpEHp0ipMsGHDKVJBQsaV9ywAAAKDWaa7z1mmu
+      8wAAAAtzc2gtZWQyNTUxOQAAACBDdacbsZRrfCY2Ye8gK/TpEHp0ipMsGHDKVJBQsaV9yw
+      AAAECUhyJKFmaRVVUKaCRcbJlel9xe1zgz5bpjewtq3Ugy3kN1pxuxlGt8JjZh7yAr9OkQ
+      enSKkywYcMpUkFCxpX3LAAAAF3N0dWRlbnRAREVTS1RPUC0xTlVEODlUAQIDBAUG
+      -----END OPENSSH PRIVATE KEY-----
+    owner: Student:Student
+    permissions: '0600'
