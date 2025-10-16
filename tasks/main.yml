@@ -13,8 +13,7 @@
     name: "{{ 'apache2' if ansible_os_family == 'Debian' else 'httpd' }}"
     state: present
   become: yes
-  notify:
-    - Restart Apache
+  notify: "herlaad_apache2"
 
 - name: Apache service starten en enablen
   ansible.builtin.service:
