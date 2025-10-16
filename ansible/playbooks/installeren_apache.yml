@@ -1,0 +1,21 @@
+---
+- name: Apache installeren en configureren
+  hosts: web
+  become: yes  # root is nodig
+
+  tasks:
+    - name: Zorg ervoor dat de UFW-service actief is
+      ansible.builtin.service:
+        name: ufw
+        state: started
+        enabled: yes
+
+    - name: Open poort 80 (HTTP) met UFW
+      community.general.ufw:
+        rule: allow
+        port: '80'
+        proto: tcp
+        state: enabled # Zorgt ervoor dat de regel wordt toegevoegd en geactiveerd
+
+  roles:
+    - L.vandijken.apache
