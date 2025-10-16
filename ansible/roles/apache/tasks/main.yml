@@ -1,0 +1,24 @@
+---
+# installeren apache2 op debian machines
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  when: ansible_os_family == "Debian"
+  become: yes
+
+- name: Installeren Apache web server
+  ansible.builtin.package:
+    name: "{{ 'apache2' if ansible_os_family == 'Debian' else 'httpd' }}"
+    state: present
+  become: yes
+  notify:
+    - Restart Apache
+
+- name: Apache service starten en enablen
+  ansible.builtin.service:
+    name: "{{ 'apache2' if ansible_os_family == 'Debian' else 'httpd' }}"
+    state: started
+    enabled: yes
+  become: yes

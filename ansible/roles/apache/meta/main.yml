@@ -1,0 +1,31 @@
+# ansible/roles/apache/meta/main.yml
+
+galaxy_info:
+  author: L-vandijken
+  description: Installeert en configureert de Apache webserver op Debian- en Red Hat-gebaseerde systemen.
+
+  license: MIT 
+
+  min_ansible_version: "2.9"
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - focal   # 20.04
+        - jammy   # 22.04
+    - name: Debian
+      versions:
+        - buster
+        - bullseye
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+
+  galaxy_tags:
+    - web
+    - apache
+    - httpd
+    - webserver
+
+dependencies: []
