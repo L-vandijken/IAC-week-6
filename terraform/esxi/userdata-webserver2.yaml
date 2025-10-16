@@ -18,3 +18,6 @@ write_files:
       AAAECUhyJKFmaRVVUKaCRcbJlel9xe1zgz5bpjewtq3Ugy3kN1pxuxlGt8JjZh7yAr9OkQ
       enSKkywYcMpUkFCxpX3LAAAAF3N0dWRlbnRAREVTS1RPUC0xTlVEODlUAQIDBAUG
       -----END OPENSSH PRIVATE KEY-----
+runcmd:
+  # voorkomen dat ansible geen tmp bestanden kan maken
+  - ['chown', '-R', 'Student:Student', '/home/Student']
