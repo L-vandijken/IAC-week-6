@@ -52,41 +52,6 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-# --- Image Upload Prerequisites (New Code) ---
-
-resource "random_integer" "suffix" {
-  min = 10000
-  max = 99999
-}
-
-resource "azurerm_storage_account" "sa" {
-  name                     = "ubuntuovfsa${random_integer.suffix.result}"
-  resource_group_name      = data.azurerm_resource_group.rg.name
-  location                 = data.azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-resource "azurerm_storage_container" "sc" {
-  name                  = "vhd-images"
-  storage_account_name  = azurerm_storage_account.sa.name
-  container_access_type = "private"
-}
-
-resource "azurerm_storage_blob" "image_blob" {
-  name                   = "ubuntu-24-04-image.vhd"
-  storage_account_name   = azurerm_storage_account.sa.name
-  storage_container_name = azurerm_storage_container.sc.name
-  type                   = "Page"
-  size                   = 1024 * 1024 * 20 
-  
-  metadata = {
-    original_ovf_source = var.ovf_source
-  }
-}
-
-# --- End New Code ---
-
 resource "azurerm_linux_virtual_machine" "vm" {
   count               = 2
   name                = "vm-${count.index}"
