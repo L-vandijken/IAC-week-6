@@ -16,14 +16,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Controleer Dockerfile met Hadolint
-        continue-on-error: true #voorkomt stoppen bij warnings
-        run: |
-          sudo docker run --rm -i hadolint/hadolint < Docker/Dockerfile
-
       - name: Controleer Docker Compose syntax
         run: |
-          sudo docker compose config --quiet
+          docker compose config --quiet
           
       - name: uitvoeren Docker Compose
-        run: sudo docker compose up -d
+        run: docker compose up -d
