@@ -1,5 +1,4 @@
-name: Terraform ESXi & Ansible Heropbouw
-
+name: Terraform ESXi
 env:
   TF_ESXI_DIR: ./l-vandijken/iac-week-6/IAC-week-6-185b46c61ab2475dc2b1e5c05d4c7f65bb4957cb/terraform/esxi
   ANSIBLE_PLAYBOOK_PATH: l-vandijken/iac-week-6/IAC-week-6-185b46c61ab2475dc2b1e5c05d4c7f65bb4957cb/ansible/playbooks/installeren_apache.yml
