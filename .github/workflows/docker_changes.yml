@@ -1,0 +1,29 @@
+name: Docker changes checking en deploying
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - './Docker/*.yml'
+      - './Docker/Dockerfile'
+
+jobs:
+  lint:
+    runs-on: [self-hosted] 
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Controleer Dockerfile met Hadolint
+        continue-on-error: true #voorkomt stoppen bij warnings
+        run: |
+          docker run --rm -i hadolint/hadolint < Dockerfile
+
+      - name: Controleer Docker Compose syntax
+        run: |
+          docker compose config --quiet
+          
+      - name: uitvoeren Docker Compose
+        run: docker compose up -d
