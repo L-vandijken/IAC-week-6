@@ -1,0 +1,35 @@
+name: ansible changes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - './ansible/playbooks/*.yml'
+      - './ansible/playbooks/*.ini'
+
+jobs:
+  ansible_ci:
+    runs-on: self-hosted  
+    
+    steps:
+      - name: Code checking
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Check Ansible Syntax
+        run: |
+          ansible-lint ./ansible/playbooks/main.yml
+          ansible-playbook ./ansible/playbooks/main.yml --syntax-check
+
+      - name: Run Playbook in Check Mode (Dry Run)
+        run: |
+          ansible-playbook ./ansible/playbooks/main.yml -i ./ansible/playbooks/inventory.ini --check
+
+      - name: Execute Ansible Playbook
+        run: |
+          ansible-playbook ./ansible/playbooks/main.yml -i ./ansible/playbooks/inventory.ini
