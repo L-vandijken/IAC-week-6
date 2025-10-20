@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - './ansible/playbooks/*.yml'
-      - './ansible/playbooks/*.ini'
+      - 'ansible/playbooks/*.yml'
+      - 'ansible/playbooks/*.ini'
 
 jobs:
   ansible_ci:
