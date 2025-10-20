@@ -12,7 +12,7 @@ on:
 
 jobs:
   terraform_ansible_redeploy:
-    name: Terraform VMs Heropzetten & Ansible Uitvoeren
+    name: Terraform VMs Heropzetten
     runs-on: [self-hosted]
 
     steps:
