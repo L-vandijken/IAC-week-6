@@ -1,0 +1,57 @@
+name: Terraform ESXi & Ansible Heropbouw
+
+env:
+  TF_ESXI_DIR: ./l-vandijken/iac-week-6/IAC-week-6-185b46c61ab2475dc2b1e5c05d4c7f65bb4957cb/terraform/esxi
+  ANSIBLE_PLAYBOOK_PATH: l-vandijken/iac-week-6/IAC-week-6-185b46c61ab2475dc2b1e5c05d4c7f65bb4957cb/ansible/playbooks/installeren_apache.yml
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'terraform/**/*.tf'  # Trigger op wijzigingen in .tf-bestanden
+
+jobs:
+  terraform_ansible_redeploy:
+    name: Terraform VMs Heropzetten & Ansible Uitvoeren
+    runs-on: [self-hosted]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Stap 1 configuratie en validatie
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        
+      - name: Terraform Init & Validate
+        id: init_validate
+        working-directory: ${{ env.TF_ESXI_DIR }}
+        run: |
+          terraform init
+          terraform validate
+        env:
+          # Gebruik het Secret voor het ESXi-wachtwoord
+          TF_VAR_esxi_password: ${{ secrets.ESXI_PASSWORD }}
+
+      # Huidige vm's vernietigen
+
+      - name: Terraform Destroy
+        id: destroy
+        working-directory: ${{ env.TF_ESXI_DIR }}
+        if: success()
+        run: terraform destroy -auto-approve
+        env:
+          TF_VAR_esxi_password: "Welkom01!"
+
+      # Stap 3: Apply
+
+      - name: Terraform Apply
+        id: apply
+        working-directory: ${{ env.TF_ESXI_DIR }}
+        # Voer Apply alleen uit als Destroy succesvol was.
+        if: steps.destroy.outcome == 'success'
+        run: terraform apply -auto-approve -input=false
+        env:
+          TF_VAR_esxi_password: "Welkom01!"
