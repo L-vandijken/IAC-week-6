@@ -7,7 +7,7 @@ variable "location" {
 variable "resource_group_name" {
   description = "Naam resource group"
   type        = string
-  default     = "iac-rg"
+  default     = "s1226001"
 }
 
 variable "vnet_name" {
