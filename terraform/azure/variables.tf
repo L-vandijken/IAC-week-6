@@ -36,5 +36,5 @@ variable "vm_size" {
 variable "ssh_public_key" {
   description = "Publieke SSH VM"
   type        = string
-  default     = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEN1pxuxlGt8JjZh7yAr9OkQenSKkywYcMpUkFCxpX3L student@DESKTOP-1NUD89T"
+  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCNqAgY61b5SC1eRPPgd1G/xJBuuuQfD3pV8s9vbZ5OuNRVqeyxs0pnfAm3Gkxuq7Zp1QPvPm/CkEm3af3vEI/dXVusoge8zNmn4XIwwY9kaFn+1Fc9eqZLGpOPmmwtaH1YrtiYjB4evRla3WjFqoqmg2Y7y3N2+xcgQVH4FYW1TblpN6U1/PKEoxoCfVaMAJhQVKe6GQlqxmVdmTi/NNYjrz1IkPnm9YsUX8GVU+hpYoTny/rjwpE2K3XfJNtRm+t+PV9yBzdcdk/RS+heDw1hI+pBaAaA6NWe66FziBMKt387m35iOWqzZ+cxA0v8ymbu7lyL/7fdreoqtOWq2YyKNiIToGTm1uSkE2ec/X6RXXIqHw9Rvh9PVqpHQvta7sFa3L3tmThvXuOQMSIO4WWIMcnooSmUpRztlrnNBgTR/R4A/LA9mi+33mW4M1m4PyZdKc5ipcx8E/YfkuJAl66Rf+Ll9nYC79eX2lTwoKPoTpc+kTMjzXKZPo7tBZZOcfMLM9LuJvH7c7FfWHp1aKe8Z4RmMYmFC6rHIkohN70/hydEa+EKGBdXLxAxLnNdl8uMBfGGFLeS0P999hDjb6eHJMBEbehLQEViseLd/Ga8Ly6q4lxRkNsMmHimSb7uIzpErN8KPwjSty3SqkNf3cMeGSKOowY6iUklrUfWKrfqUQ== student@DESKTOP-1NUD89T"
 }
