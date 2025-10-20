@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - './Docker/*.yml'
-      - './Docker/Dockerfile'
+      - 'Docker/*.yml'
+      - 'Docker/Dockerfile'
 
 jobs:
   lint:
