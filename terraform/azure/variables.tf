@@ -21,6 +21,12 @@ variable "vnet_name" {
   default     = "iac-vnet"
 }
 
+variable "ovf_source" {
+  description = "URL to Ubuntu 24.04 OVA/OVF"
+  type        = string
+  default     = "https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.ova"
+}
+
 variable "subnet_name" {
   description = "subnet"
   type        = string
