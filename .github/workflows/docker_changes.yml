@@ -9,7 +9,7 @@ on:
       - 'Docker/Dockerfile'
 
 jobs:
-  lint:
+  Checking_and_deploying:
     runs-on: [self-hosted] 
     
     steps:
