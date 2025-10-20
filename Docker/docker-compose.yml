@@ -1,19 +1,18 @@
 version: '3.8'
+
 services:
   webserver1:
     build: .
-    container_name: apache_server_a
-    ports:
-      - "8080:80"
-    restart: unless-stopped
-    volumes:
-      - ~/.ssh/mvkey:/root/.ssh/mvkey:ro
-
-  webserver2:
-    build: .
-    container_name: apache_server_b
+    container_name: webserver1
     ports:
       - "8081:80"
-    restart: unless-stopped
     volumes:
-      - ~/.ssh/mvkey:/root/.ssh/mvkey:ro
+      - ./keys/mvkey:/mnt/keys/mvkey:ro
+    
+  webserver2:
+    build: .
+    container_name: webserver2
+    ports:
+      - "8082:80"
+    volumes:
+      - ./keys/mvkey:/mnt/keys/mvkey:ro
