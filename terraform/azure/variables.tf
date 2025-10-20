@@ -4,6 +4,11 @@ variable "location" {
   default     = "westeurope"
 }
 
+variable "subscription_id" {
+  type        = string
+  default     = "c064671c-8f74-4fec-b088-b53c568245eb" 
+}
+
 variable "resource_group_name" {
   description = "Naam resource group"
   type        = string
