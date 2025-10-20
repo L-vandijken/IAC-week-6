@@ -52,8 +52,6 @@ resource "azurerm_network_interface" "nic" {
   }
 }
 
-# --- Image Upload Prerequisites (New Code) ---
-
 resource "random_integer" "suffix" {
   min = 10000
   max = 99999
@@ -74,7 +72,7 @@ resource "azurerm_storage_container" "sc" {
 }
 
 resource "azurerm_storage_blob" "image_blob" {
-  name                   = "ubuntu-24-04-image.vhd"
+  name                   = "ubuntu-22-04-image.vhd"
   storage_account_name   = azurerm_storage_account.sa.name
   storage_container_name = azurerm_storage_container.sc.name
   type                   = "Page"
@@ -85,7 +83,6 @@ resource "azurerm_storage_blob" "image_blob" {
   }
 }
 
-# --- End New Code ---
 
 resource "azurerm_linux_virtual_machine" "vm" {
   count               = 2
