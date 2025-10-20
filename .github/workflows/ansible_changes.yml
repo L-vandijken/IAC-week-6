@@ -23,12 +23,12 @@ jobs:
 
       - name: Check Ansible Syntax
         run: |
-          ansible-playbook ./ansible/playbooks/main.yml --syntax-check
+          ansible-playbook ./ansible/playbooks/installeren_apache.yml --syntax-check
 
-      - name: Run Playbook in Check Mode (Dry Run)
+      - name: Run Playbook in Check Mode
         run: |
-          ansible-playbook ./ansible/playbooks/main.yml -i ./ansible/playbooks/inventory.ini --check
+          ansible-playbook ./ansible/playbooks/installeren_apache.yml -i ./ansible/playbooks/inventory.ini --check
 
       - name: Execute Ansible Playbook
         run: |
-          ansible-playbook ./ansible/playbooks/main.yml -i ./ansible/playbooks/inventory.ini
+          ansible-playbook ./ansible/playbooks/installeren_apache.yml-i ./ansible/playbooks/inventory.ini
