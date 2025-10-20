@@ -1,4 +1,4 @@
-name: ansible changes
+name: ansible deploying en afhandelen changes
 
 on:
   push:
