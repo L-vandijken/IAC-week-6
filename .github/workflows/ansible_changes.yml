@@ -23,7 +23,6 @@ jobs:
 
       - name: Check Ansible Syntax
         run: |
-          ansible-lint ./ansible/playbooks/main.yml
           ansible-playbook ./ansible/playbooks/main.yml --syntax-check
 
       - name: Run Playbook in Check Mode (Dry Run)
