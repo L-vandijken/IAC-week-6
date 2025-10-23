@@ -8,6 +8,7 @@
   ansible.builtin.package:
     name: apache2
     state: present
+    update_cache: yes
   become: yes
   notify: "herlaad_apache2"
 
