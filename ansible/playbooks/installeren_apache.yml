@@ -1,6 +1,6 @@
 ---
 - name: Apache installeren en configureren
-  hosts: web
+  hosts: web_esxi, web_azure
   become: yes  # root is nodig
 
   tasks:
