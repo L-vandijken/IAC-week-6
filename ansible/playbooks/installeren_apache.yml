@@ -2,6 +2,7 @@
 - name: Apache installeren en configureren
   hosts: web_esxi, web_azure
   become: yes  # root is nodig
+  gather_facts: no
 
   tasks:
     - name: Zorg ervoor dat de UFW-service actief is
