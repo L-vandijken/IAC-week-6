@@ -18,4 +18,4 @@
         state: enabled # Zorgt ervoor dat de regel wordt toegevoegd en geactiveerd
 
   roles:
-    - L-vandijken.apache
+    - L-vandijken.Apache2
