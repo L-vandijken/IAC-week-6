@@ -17,6 +17,7 @@
     state: present
     update_cache: yes
   become: yes
+  when: not ansible_check_mode
   notify: "herlaad_apache2"
 
 - name: Zorg dat de Apache service start en ge-enabled is
