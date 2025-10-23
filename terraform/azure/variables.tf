@@ -22,7 +22,7 @@ variable "vnet_name" {
 }
 
 variable "ovf_source" {
-  description = "URL to Ubuntu 24.04 OVA/OVF"
+  description = "URL to Ubuntu 22.04 OVA/OVF"
   type        = string
   default     = "https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.ova"
 }
@@ -39,8 +39,14 @@ variable "vm_size" {
   default     = "Standard_DS1_v2"
 }
 
-variable "ssh_public_key" {
-  description = "Publieke SSH VM"
+variable "public_key_path" {
+  description = "File path to SSH public key"
   type        = string
-  default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDBO1wADoaVjzs0xyjfnD9pODjZOq/ZH/lP89lVMg96Wi+67I+IUE2zG8auPLg9Yjhk2MSpXMZj6H2tqvQGWAoXwhdduUZmiGqsxuKfgdl2UwWA0CxiYnpXscQHEUWZdobPaKwukS3u6614p89hVurqd8nwSZniATyv7bhokX9QxJGuFQskhEjzDSh78BBUcgxReLc4+eRvFRLhedNR9Fp+n7ZKOUN2JPKSb8oVXKkL0AEJSbd6A3Hh5KVVBPGJNATjwfI87XA0XfCQeaClwfQAQykE1WXg2OTvNbox8lodnGxMVj0KOg/jeDiD45S6U+brKVSpMvKE7O2o+CVwnaQ4bTULpabnHdysWTom3jEpbwdkovv5+v97+VL/zmINfFYC9RNN2qgWpZ1C1jrpoxs3/5TX6FaqJRaUepM670/VBsE2oOFm9uMUIfxcg2PTmZ0ZnKJBJl3wn/kUhI1scBQAL6wicU6dJyKUt2LUm8gMfKBPFCV6FrHew5JmBSVfvjkHcZe12PrQOe/wQ51UFYol1s6NCGIcdZ4DrpZ4k6EaXHAZh0BO/iurggMSjcWqjsMN/PhjdkGKh+pXAbBZm4djk57VvppZVSj2kjyDYY4DPL3GshvVvt+VFEgkT/RopjjImNQTy4PoL1EpalaHCKxXRcgc4yn909y9OC7A8ZJNgQ== student@azure-rsa-key"
+  default     = "~/.ssh/azuressh.pub" 
 }
+
+#variable "ssh_public_key" {
+ # description = "Publieke SSH VM"
+ # type        = string
+ # default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtNePbW5Vq8zrTOL7oJv3yq5ZKQHBG4W6k4fJg/GpcWuS6hpmy/9XqCi9bIqIz8u5vIg4HyLQSmOyRCpAFzAAwZGi0i7NkLK+b8tUTA/3cb7deNa/l8cBqTEmwKvSjB5ynoyc61uFKqtgtROgUuZL332K8JnTrEaQhsiJ04mpS8irbuuhTJychaq9YNlVD3PTEpx0Z5Y+Gt9bkfsAsUwq8+e3uudiceeMwIpz4DtPNIyZHRIwOKHc44Mj/EiQQ7bcWZZnRS/B66A/xeUpgcWcKncHLqkUXAdK2iUG16xCaxwwGJ5YW4PSeKEW3aGVrwgy59wc4iG5kI7QUmGLmq019 student@azure-rsa-key"
+#}

@@ -16,6 +16,10 @@ data "azurerm_resource_group" "rg" {
   name = var.resource_group_name
 }
 
+data "local_file" "ssh_public_key" {
+  filename = var.public_key_path
+}
+
 resource "azurerm_virtual_network" "vnet" {
   name                = var.vnet_name
   address_space       = ["10.0.0.0/16"]
@@ -90,15 +94,15 @@ resource "azurerm_linux_virtual_machine" "vm" {
   resource_group_name = data.azurerm_resource_group.rg.name
   location            = data.azurerm_resource_group.rg.location
   size                = var.vm_size
-  admin_username      = "Student"
+  admin_username      = "student"
   network_interface_ids = [
     azurerm_network_interface.nic[count.index].id
   ]
   disable_password_authentication = true
 
   admin_ssh_key {
-    username   = "Student"
-    public_key = var.ssh_public_key
+    username   = "student"
+    public_key = data.local_file.ssh_public_key.content
   }
 
   os_disk {
@@ -116,7 +120,8 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   custom_data = base64encode(templatefile("${path.module}/cloud-init.tpl", {
-    username = "Student"
+    username = "student"
+    ssh_public_key = data.local_file.ssh_public_key.content
   }))
 
   provisioner "local-exec" {
