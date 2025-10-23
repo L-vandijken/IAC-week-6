@@ -30,4 +30,4 @@ jobs:
 
       - name: Execute Ansible Playbook
         run: |
-          ansible-playbook ./ansible/playbooks/installeren_apache.yml-i ./ansible/playbooks/inventory.ini
+          ansible-playbook ./ansible/playbooks/installeren_apache.yml -i ./ansible/playbooks/inventory.ini
