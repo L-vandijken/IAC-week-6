@@ -1,7 +1,7 @@
 
 galaxy_info:
   author: L-vandijken
-  description: Installeert en configureert de Apache webserver op Debian- en Red Hat-gebaseerde systemen.
+  description: Installeert en configureert de Apache webserver
 
   license: MIT 
 

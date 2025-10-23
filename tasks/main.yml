@@ -4,6 +4,13 @@
     update_cache: yes
   become: yes
 
+- name: Forceer Purge van Apache2 (voor een schone start)
+  ansible.builtin.apt:
+    name: apache2
+    state: absent
+    purge: yes
+  become: yes
+
 - name: Installeer Apache web server
   ansible.builtin.package:
     name: apache2
