@@ -9,14 +9,34 @@ packages:
   - wget
   - ntpdate
 write_files:
-  - path: /home/Student/.ssh/id_azure
+  - path: /home/Student/.ssh/azuressh
     content: |
       -----BEGIN OPENSSH PRIVATE KEY-----
-      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
+      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
       -----END OPENSSH PRIVATE KEY-----
 runcmd:
   # voorkomen dat ansible geen tmp bestanden kan maken
