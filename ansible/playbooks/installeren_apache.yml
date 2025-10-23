@@ -15,7 +15,14 @@
         rule: allow
         port: '80'
         proto: tcp
-        state: enabled # Zorgt ervoor dat de regel wordt toegevoegd en geactiveerd
+        state: enabled 
+
+    - name: Open poort 22 (SSH) met UFW
+      community.general.ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+        state: enabled 
 
   roles:
     - L-vandijken.Apache2
