@@ -6,7 +6,6 @@ on:
       - main
     paths:
       - 'ansible/playbooks/*.yml'
-      - 'ansible/playbooks/*.ini'
 
 jobs:
   ansible_ci:
