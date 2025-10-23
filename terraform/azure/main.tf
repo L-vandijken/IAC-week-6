@@ -128,3 +128,5 @@ resource "azurerm_linux_virtual_machine" "vm" {
     command = "echo ${azurerm_public_ip.pip[count.index].ip_address} vm-${count.index} >> vm_ips.txt"
   }
 }
+
+#test
