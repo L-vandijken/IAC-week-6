@@ -42,7 +42,7 @@ variable "vm_size" {
 variable "public_key_path" {
   description = "File path to SSH public key"
   type        = string
-  default     = "~/.ssh/azuressh.pub" 
+  default     = "/home/student/.ssh/azuressh.pub" 
 }
 
 #variable "ssh_public_key" {
