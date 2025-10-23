@@ -2,7 +2,6 @@
 - name: Apache installeren en configureren
   hosts: web_esxi, web_azure
   become: yes  # root is nodig
-  gather_facts: no
 
   tasks:
     - name: Zorg ervoor dat de UFW-service actief is
@@ -10,6 +9,13 @@
         name: ufw
         state: started
         enabled: yes
+    
+    - name: Open poort 22 (SSH) met UFW
+      community.general.ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+        state: enabled 
 
     - name: Open poort 80 (HTTP) met UFW
       community.general.ufw:
@@ -17,13 +23,10 @@
         port: '80'
         proto: tcp
         state: enabled 
-
-    - name: Open poort 22 (SSH) met UFW
+  
+    - name: Activeer UFW-firewall
       community.general.ufw:
-        rule: allow
-        port: '22'
-        proto: tcp
-        state: enabled 
+        state: enabled
 
   roles:
     - L-vandijken.Apache2
