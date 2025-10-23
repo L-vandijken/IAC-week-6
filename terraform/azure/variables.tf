@@ -45,8 +45,4 @@ variable "public_key_path" {
   default     = "/home/student/.ssh/azuressh.pub" 
 }
 
-#variable "ssh_public_key" {
- # description = "Publieke SSH VM"
- # type        = string
- # default     = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtNePbW5Vq8zrTOL7oJv3yq5ZKQHBG4W6k4fJg/GpcWuS6hpmy/9XqCi9bIqIz8u5vIg4HyLQSmOyRCpAFzAAwZGi0i7NkLK+b8tUTA/3cb7deNa/l8cBqTEmwKvSjB5ynoyc61uFKqtgtROgUuZL332K8JnTrEaQhsiJ04mpS8irbuuhTJychaq9YNlVD3PTEpx0Z5Y+Gt9bkfsAsUwq8+e3uudiceeMwIpz4DtPNIyZHRIwOKHc44Mj/EiQQ7bcWZZnRS/B66A/xeUpgcWcKncHLqkUXAdK2iUG16xCaxwwGJ5YW4PSeKEW3aGVrwgy59wc4iG5kI7QUmGLmq019 student@azure-rsa-key"
-#}
+
