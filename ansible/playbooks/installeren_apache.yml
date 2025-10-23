@@ -10,12 +10,23 @@
         state: started
         enabled: yes
     
+    - name: Open poort 22 (SSH) met UFW
+      community.general.ufw:
+        rule: allow
+        port: '22'
+        proto: tcp
+        state: enabled 
+
     - name: Open poort 80 (HTTP) met UFW
       community.general.ufw:
         rule: allow
         port: '80'
         proto: tcp
         state: enabled 
+  
+    - name: Activeer UFW-firewall
+      community.general.ufw:
+        state: enabled
 
   roles:
     - L-vandijken.Apache2
